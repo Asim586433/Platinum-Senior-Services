@@ -7,7 +7,6 @@
   <meta name="description" content="Platinum Senior Services: A private, high-touch senior living advisory firm. Discreet, expert guidance for assisted living, memory care, and urgent transitions. Concierge-level service.">
   <meta name="keywords" content="luxury senior living advisor, assisted living placement, memory care, geriatric care manager, private advisory">
   <meta name="author" content="Platinum Senior Services">
-  <meta name="robots" content="index, follow">
   
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +43,7 @@
       --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    /* Typography - Large & Modern */
+    /* Typography */
     h1, h2, h3, h4, .logo, .nav-links a {
       font-family: 'Playfair Display', serif;
       font-weight: 500;
@@ -85,7 +84,6 @@
       line-height: 1.6;
     }
 
-    /* Container & Spacing */
     .container {
       max-width: 1400px;
       margin: 0 auto;
@@ -98,12 +96,7 @@
       }
     }
 
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Navigation - Premium Sticky */
+    /* Navigation */
     header {
       position: fixed;
       top: 0;
@@ -129,7 +122,7 @@
       font-weight: 700;
       color: var(--rich-black);
       text-decoration: none;
-      letter-spacing: -0.5px;
+      cursor: pointer;
     }
     .logo span {
       color: var(--antique-gold);
@@ -148,6 +141,7 @@
       font-size: 0.95rem;
       transition: color 0.3s;
       position: relative;
+      cursor: pointer;
     }
     .nav-links a::after {
       content: '';
@@ -173,8 +167,8 @@
       border-radius: 40px;
       font-weight: 600;
     }
-    .btn-nav:hover::after {
-      width: 0;
+    .btn-nav::after {
+      display: none;
     }
     .mobile-menu-btn {
       display: none;
@@ -198,10 +192,7 @@
       transition: all 0.4s;
       display: inline-block;
       text-decoration: none;
-      border-radius: 0;
       letter-spacing: 0.5px;
-      position: relative;
-      overflow: hidden;
     }
     .btn-primary:hover {
       transform: translateY(-3px);
@@ -218,6 +209,7 @@
       text-decoration: none;
       transition: all 0.3s;
       display: inline-block;
+      cursor: pointer;
     }
     .btn-outline:hover {
       background: var(--antique-gold);
@@ -225,7 +217,7 @@
       transform: translateY(-2px);
     }
 
-    /* Sections with Parallax */
+    /* Sections */
     section {
       padding: 120px 0;
       position: relative;
@@ -254,32 +246,32 @@
       z-index: 2;
     }
 
-    /* Cards & Grids */
-    .grid-3, .services-grid, .team-grid {
+    /* Grids */
+    .grid-3, .services-grid, .team-grid, .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 3rem;
       margin-top: 2rem;
     }
-    .pillar-card, .service-card, .team-card {
+    .pillar-card, .service-card, .team-card, .blog-card {
       background: var(--pure-white);
       padding: 2rem;
       transition: var(--transition-smooth);
       border-bottom: 3px solid transparent;
       box-shadow: var(--soft-shadow);
     }
-    .pillar-card:hover, .service-card:hover {
+    .pillar-card:hover, .service-card:hover, .blog-card:hover {
       transform: translateY(-8px);
       border-bottom-color: var(--antique-gold);
       box-shadow: 0 30px 50px -20px rgba(0,0,0,0.15);
     }
-    .pillar-card i, .service-card i {
+    .pillar-card i, .service-card i, .blog-card i {
       font-size: 2.5rem;
       color: var(--antique-gold);
       margin-bottom: 1.5rem;
     }
 
-    /* Split Layouts */
+    /* Split Layout */
     .split-layout {
       display: flex;
       flex-wrap: wrap;
@@ -303,9 +295,6 @@
       height: 500px;
       transition: transform 0.6s;
     }
-    .img-placeholder:hover {
-      transform: scale(1.02);
-    }
 
     /* Testimonial */
     .testimonial {
@@ -318,6 +307,34 @@
       text-align: center;
       margin: 2rem auto;
       max-width: 1000px;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testimonial-card {
+      background: var(--warm-ivory);
+      padding: 2rem;
+      border-radius: 0;
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--antique-gold);
     }
 
     /* Footer */
@@ -342,14 +359,22 @@
       margin-right: 12px;
       color: var(--antique-gold);
     }
+    .social-links a {
+      color: var(--warm-ivory);
+      margin-right: 1rem;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: var(--antique-gold);
+    }
 
-    /* Parallax sections */
+    /* Parallax Section */
     .parallax-section {
       background-attachment: fixed;
       background-size: cover;
       background-position: center;
       position: relative;
-      color: white;
     }
     .parallax-section .overlay {
       background: rgba(10, 26, 42, 0.85);
@@ -398,11 +423,6 @@
       }
     }
 
-    /* Animations */
-    [data-aos] {
-      opacity: 0;
-      transition-property: transform, opacity;
-    }
     .sticky-phone {
       position: fixed;
       bottom: 30px;
@@ -418,11 +438,25 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Inter', sans-serif;
       transition: transform 0.3s;
     }
     .sticky-phone:hover {
       transform: scale(1.05);
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 12px;
+      margin-top: 1rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -430,15 +464,16 @@
 
 <header id="header">
   <div class="nav-container">
-    <a href="#" class="logo" id="logo-home">Platinum<span>Senior</span></a>
+    <a class="logo" id="logo-home">Platinum<span>Senior</span></a>
     <div class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
     <div class="nav-links" id="navLinks">
-      <a href="#" data-page="home" class="active">Home</a>
-      <a href="#" data-page="about">About</a>
-      <a href="#" data-page="services">Services</a>
-      <a href="#" data-page="how-it-works">Process</a>
-      <a href="#" data-page="resources">Insights</a>
-      <a href="#" data-page="contact" class="btn-nav">Contact</a>
+      <a data-page="home" class="active">Home</a>
+      <a data-page="about">About</a>
+      <a data-page="services">Services</a>
+      <a data-page="process">Process</a>
+      <a data-page="resources">Insights</a>
+      <a data-page="testimonials">Stories</a>
+      <a data-page="contact" class="btn-nav">Contact</a>
     </div>
   </div>
 </header>
@@ -453,6 +488,11 @@
       <div>
         <div class="footer-logo">Platinum Senior Services</div>
         <p style="margin-top: 12px; opacity:0.8;">Discretion. Expertise. Legacy.</p>
+        <div class="social-links" style="margin-top: 1rem;">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
       </div>
       <div>
         <h4 style="color:var(--antique-gold); margin-bottom:1rem;">Visit</h4>
@@ -468,6 +508,7 @@
         <h4 style="color:var(--antique-gold); margin-bottom:1rem;">Accreditations</h4>
         <p>NAGCM | HIPAA Compliant</p>
         <p>LeadingAge Partner</p>
+        <p>Alzheimer's Assoc. Champion</p>
       </div>
     </div>
     <div style="text-align: center; border-top: 1px solid rgba(198,164,63,0.2); padding-top: 2rem;">
@@ -478,20 +519,17 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Premium image set with unsplash high-res
-  const getImage = (type) => {
-    const images = {
-      hero: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      about: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      service: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      crisis: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      team: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      living: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    };
-    return images[type] || images.hero;
+  // Image database
+  const images = {
+    hero: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    about: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    service: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    crisis: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    living: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    team: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
   };
 
-  // Pages with modern layout, parallax, AOS animations
+  // Complete pages data
   const pages = {
     home: () => `
       <div class="hero">
@@ -500,7 +538,7 @@
           <div data-aos="fade-up" data-aos-duration="1000">
             <h1>Guidance for the Journey Ahead.<br>Clarity for the Decisions at Hand.</h1>
             <p class="section-subhead">Platinum Senior Services is a private advisory firm for families seeking exceptional senior living arrangements. Discreet, expert, and absolutely calm.</p>
-            <a href="#" data-page="contact" class="btn-primary">Schedule Private Consultation →</a>
+            <a class="btn-primary" data-page="contact">Schedule Private Consultation →</a>
           </div>
         </div>
       </div>
@@ -509,51 +547,60 @@
         <div class="container">
           <h2 style="text-align:center;">The Platinum Standard</h2>
           <div class="grid-3">
-            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-user-secret"></i><h3>Private & Discreet</h3><p>We never sell data. Your family's privacy is our highest priority.</p></div>
-            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-stethoscope"></i><h3>Medical-Grade Expertise</h3><p>Clinical precision in matching medical needs with environments.</p></div>
-            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-hand-holding-heart"></i><h3>Fiduciary Alignment</h3><p>We work for you, not the residences. Unbiased recommendations.</p></div>
+            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-user-secret"></i><h3>Private & Discreet</h3><p>We never sell data. Your family's privacy is our highest priority. HIPAA compliant and confidential.</p></div>
+            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-stethoscope"></i><h3>Medical-Grade Expertise</h3><p>Clinical precision in matching medical needs with environments. RNs and geriatric specialists on staff.</p></div>
+            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-hand-holding-heart"></i><h3>Fiduciary Alignment</h3><p>We work for you, not the residences. 100% unbiased recommendations with zero commissions.</p></div>
           </div>
         </div>
       </section>
 
-      <section class="parallax-section" style="background-image: url('${getImage('living')}'); background-attachment: fixed;">
+      <section class="parallax-section" style="background-image: url('${images.living}'); background-attachment: fixed;">
         <div class="overlay"></div>
         <div class="container">
           <div data-aos="fade-right" style="max-width:600px;">
             <h2 style="color:white;">Crisis is Not a Strategy.</h2>
             <p style="color:#E8EDF2; font-size:1.2rem;">The healthcare system forces families into $10k decisions in minutes. We bring order to chaos—proactively or urgently.</p>
-            <a href="#" data-page="how-it-works" class="btn-outline" style="margin-top:1.5rem; display:inline-block;">How We Provide Clarity →</a>
+            <a class="btn-outline" data-page="process" style="margin-top:1.5rem; display:inline-block;">How We Provide Clarity →</a>
           </div>
         </div>
       </section>
 
       <section><div class="container"><h2 style="text-align:center;">Curated Services</h2><div class="services-grid">
-        <div class="service-card" data-aos="flip-left"><i class="fas fa-home"></i><h3>Assisted Living & Memory Care</h3><p>Clinical oversight and curated searches matching emotional and medical needs.</p></div>
-        <div class="service-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-ambulance"></i><h3>Urgent Care Transitions</h3><p>48-hour crisis response, hospital discharge coordination, immediate placement.</p></div>
-        <div class="service-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-file-contract"></i><h3>Contract & Rate Negotiation</h3><p>We decode 40+ page leases and negotiate to protect your assets.</p></div>
+        <div class="service-card" data-aos="flip-left"><i class="fas fa-home"></i><h3>Assisted Living & Memory Care</h3><p>Clinical oversight and curated searches matching emotional and medical needs across 200+ communities.</p></div>
+        <div class="service-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-ambulance"></i><h3>Urgent Care Transitions</h3><p>48-hour crisis response, hospital discharge coordination, immediate placement with vetted residences.</p></div>
+        <div class="service-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-file-contract"></i><h3>Contract & Rate Negotiation</h3><p>We decode 40+ page leases, flag liability clauses, and negotiate rates saving families 15-20% annually.</p></div>
       </div></div></section>
 
-      <section><div class="container"><div class="testimonial" data-aos="fade-up">“When my father was diagnosed with Lewy Body dementia, Michelle didn’t just find a place—she found a community that understood him. She gave us our family back.” <br>— The Harrison Family, Buckhead, GA</div></div></section>
+      <section><div class="container"><div class="testimonial" data-aos="fade-up">“When my father was diagnosed with Lewy Body dementia, Michelle didn't just find a place—she found a community that understood him. She gave us our family back.” <br>— The Harrison Family, Buckhead, GA</div></div></section>
       
-      <section><div class="container" style="text-align:center;"><h2>Let’s discuss your family’s future.</h2><p class="section-subhead" style="margin:0 auto 2rem;">No obligation. No pressure. Just clarity.</p><a href="#" data-page="contact" class="btn-primary">Request a Callback</a> <a href="tel:+15551234567" class="btn-outline" style="margin-left:1rem;">Call Now</a></div></section>
+      <section><div class="container" style="text-align:center;"><h2>Let's discuss your family's future.</h2><p class="section-subhead" style="margin:0 auto 2rem;">No obligation. No pressure. Just clarity.</p><a class="btn-primary" data-page="contact">Request a Callback</a> <a href="tel:+15551234567" class="btn-outline" style="margin-left:1rem;">Call Now</a></div></section>
     `,
+    
     about: () => `
-      <section style="padding-top:160px;"><div class="container split-layout"><div class="split-left" data-aos="fade-right"><h2>Michelle Sterling, LNHA, CMC</h2><p style="font-size:1.2rem; color:var(--antique-gold);">Founder & Principal Advisor</p><p>With over 20 years in geriatric care management, Michelle bridges clinical necessity and emotional well-being. Before founding Platinum, she led luxury senior communities. She saw how the system fails families without advocates.</p><p>“I left institutional operations to ensure families had a true advocate—someone who speaks clinical language but feels like a trusted neighbor.”</p></div><div class="split-right" data-aos="fade-left"><img class="img-fluid" src="${getImage('about')}" alt="Michelle Sterling"></div></div></section>
-      <section><div class="container"><h2 style="text-align:center;">The Platinum Team</h2><div class="team-grid"><div class="team-card" data-aos="fade-up"><i class="fas fa-user-md" style="font-size:2.5rem;color:var(--antique-gold);"></i><h3>James O’Connor</h3><p>Director of Care Navigation</p><p>Former hospital discharge planner</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-brain" style="font-size:2.5rem;color:var(--antique-gold);"></i><h3>Dr. Elena Vasquez</h3><p>Clinical Advisor, Geriatric Psychology</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-hands-helping" style="font-size:2.5rem;color:var(--antique-gold);"></i><h3>David Kim</h3><p>Resident Advocate, LCSW</p></div></div></div></section>
+      <section style="padding-top:160px;"><div class="container split-layout"><div class="split-left" data-aos="fade-right"><h2>Michelle Sterling, LNHA, CMC</h2><p style="font-size:1.2rem; color:var(--antique-gold);">Founder & Principal Advisor</p><p>With over 20 years in geriatric care management and licensed nursing home administration, Michelle bridges clinical necessity and emotional well-being. Before founding Platinum, she led luxury senior communities and witnessed how the system fails families without advocates.</p><p>“I left institutional operations to ensure families had a true advocate—someone who speaks clinical language but feels like a trusted neighbor.”</p><p><strong>Credentials:</strong> Licensed Nursing Home Administrator, Certified Care Manager, Gerontology Specialist</p></div><div class="split-right" data-aos="fade-left"><img class="img-fluid" src="${images.about}" alt="Michelle Sterling"></div></div></section>
+      <section><div class="container"><h2 style="text-align:center;">The Platinum Team</h2><div class="team-grid"><div class="team-card" data-aos="fade-up"><i class="fas fa-user-md" style="font-size:2.5rem;color:var(--antique-gold);"></i><h3>James O'Connor</h3><p>Director of Care Navigation</p><p>Former hospital discharge planner, 15 years experience</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-brain" style="font-size:2.5rem;color:var(--antique-gold);"></i><h3>Dr. Elena Vasquez</h3><p>Clinical Advisor, Geriatric Psychology</p><p>Specializing in dementia and cognitive disorders</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-hands-helping" style="font-size:2.5rem;color:var(--antique-gold);"></i><h3>David Kim, LCSW</h3><p>Resident Advocate & Family Counselor</p><p>Licensed clinical social worker, trauma-informed care</p></div></div></div></section>
     `,
+    
     services: () => `
-      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up">Proactive Planning & Lifestyle Advisory</h2><div class="split-layout"><div class="split-left"><p>For families preparing before crisis hits. We conduct a Lifestyle & Care Audit, define needs 6-24 months out, tour communities, vet financial structures, and create a roadmap so the decision is already made.</p></div><div class="split-right"><img class="img-fluid" src="${getImage('service')}" alt="Planning"></div></div></div></section>
-      <section><div class="container"><h2 data-aos="fade-up">Urgent Transition & Crisis Management</h2><div class="split-layout"><div class="split-right"><img class="img-fluid" src="${getImage('crisis')}" alt="Crisis"></div><div class="split-left"><p>When a fall or hospital discharge leaves 24-48 hours, we drop everything. We coordinate with case managers, screen communities, and manage the physical move—so you focus on your loved one.</p></div></div></div></section>
-      <section><div class="container" style="background:var(--warm-ivory); padding:3rem; text-align:center;"><h2>Simple, Transparent Fees</h2><p>Private pay, fee-for-service. No commissions. Our recommendations are unbiased, based solely on your family’s needs.</p><a href="#" data-page="contact" class="btn-primary" style="margin-top:1rem;">Request Fee Schedule</a></div></section>
+      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up">Proactive Planning & Lifestyle Advisory</h2><div class="split-layout"><div class="split-left"><p>For families preparing before crisis hits. We conduct a comprehensive Lifestyle & Care Audit, define needs 6-24 months out, tour communities together, vet financial structures, and create a detailed roadmap. When the time comes, the decision is already made.</p><ul style="margin-top:1rem;"><li>✓ Comprehensive needs assessment</li><li>✓ Financial planning consultation</li><li>✓ Future-proofing care strategy</li></ul></div><div class="split-right"><img class="img-fluid" src="${images.service}" alt="Planning"></div></div></div></section>
+      <section><div class="container"><h2 data-aos="fade-up">Urgent Transition & Crisis Management</h2><div class="split-layout"><div class="split-right"><img class="img-fluid" src="${images.crisis}" alt="Crisis"></div><div class="split-left"><p>When a fall, diagnosis, or hospital discharge leaves you with 24-48 hours, we drop everything. We coordinate with hospital case managers, clinically screen communities, manage the physical move, and provide emotional support—so you can focus on your loved one.</p><ul><li>✓ 24/7 crisis response team</li><li>✓ Hospital discharge coordination</li><li>✓ Same-day placement available</li></ul></div></div></div></section>
+      <section><div class="container" style="background:var(--warm-ivory); padding:3rem; text-align:center;"><h2>Simple, Transparent Fees</h2><p style="font-size:1.2rem;">Private pay, fee-for-service. No commissions. Our recommendations are 100% unbiased, based solely on your family's needs.</p><p style="margin-top:1rem;"><strong>Initial consultation:</strong> Complimentary | <strong>Full advisory package:</strong> Custom quote based on complexity</p><a class="btn-primary" data-page="contact" style="margin-top:1rem;">Request Fee Schedule</a></div></section>
     `,
-    "how-it-works": () => `
-      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up">Clarity, By Design</h2><div class="grid-3"><div class="service-card" data-aos="fade-right"><h3>01 Discovery Call</h3><p>15 min: listen, gather clinical basics, determine fit.</p></div><div class="service-card" data-aos="fade-up"><h3>02 Family Intake</h3><p>Deep-dive medical, cognitive, financial profile.</p></div><div class="service-card" data-aos="fade-left"><h3>03 Curated Tours</h3><p>Narrow 50+ to 3-4 best matches. We accompany you.</p></div><div class="service-card" data-aos="fade-right"><h3>04 Placement & Advocacy</h3><p>Negotiate contracts, coordinate move-in, ensure settled.</p></div></div><div style="text-align:center; margin-top:3rem;"><a href="#" data-page="contact" class="btn-primary">Begin Your Journey</a></div></div></section>
+    
+    process: () => `
+      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up" style="text-align:center;">Clarity, By Design</h2><p style="text-align:center; margin-bottom:3rem;">Our proven 4-step advisory process ensures peace of mind at every stage.</p><div class="services-grid"><div class="service-card" data-aos="fade-right"><h3><span style="color:var(--antique-gold);">01</span> Discovery Call</h3><p>15-minute conversation: we listen to your situation, gather clinical basics, timeline, and preferences. No sales pitch. We determine if we're the right fit for your family.</p><p><strong>Outcome:</strong> Clarity on next steps</p></div><div class="service-card" data-aos="fade-up"><h3><span style="color:var(--antique-gold);">02</span> Family Intake & Assessment</h3><p>Deep-dive into medical records, cognitive function, financial considerations, and personal preferences. We build a comprehensive care profile.</p><p><strong>Outcome:</strong> Personalized roadmap</p></div><div class="service-card" data-aos="fade-left"><h3><span style="color:var(--antique-gold);">03</span> Curated Tours & Clinical Vetting</h3><p>We narrow 50+ communities to 3-4 best matches. We accompany you on tours to ask the critical questions you might not know to ask.</p><p><strong>Outcome:</strong> Qualified shortlist</p></div><div class="service-card" data-aos="fade-up"><h3><span style="color:var(--antique-gold);">04</span> Placement, Negotiation & Advocacy</h3><p>We review contracts, negotiate rates, coordinate move-in logistics, and provide 30-day post-placement follow-up to ensure a settled transition.</p><p><strong>Outcome:</strong> Peace of mind</p></div></div><div style="text-align:center; margin-top:3rem;"><a class="btn-primary" data-page="contact">Begin Your Journey</a></div></div></section>
     `,
+    
     resources: () => `
-      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up">Platinum Insights Library</h2><div class="services-grid"><div class="service-card"><i class="fas fa-file-alt" style="font-size:2rem;"></i><h3>Discharge Avalanche</h3><p>How to advocate in the hospital.</p></div><div class="service-card"><i class="fas fa-file-signature"></i><h3>Contract Traps</h3><p>Hidden language in senior living leases.</p></div><div class="service-card"><i class="fas fa-brain"></i><h3>Memory Care vs AL</h3><p>Clinical distinctions explained.</p></div><div class="service-card"><i class="fas fa-calendar-check"></i><h3>6 Signs for Assessment</h3><p>When to plan proactively.</p></div></div></div></section>
+      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up">Platinum Insights Library</h2><p class="section-subhead">Expert perspectives, research-backed guidance, and practical tools for families.</p><div class="blog-grid"><div class="blog-card"><i class="fas fa-file-alt"></i><h3>The Discharge Avalanche</h3><p>How to advocate for your loved one during hospital discharge and secure safe transitions.</p><a style="color:var(--antique-gold); cursor:pointer;" class="read-more">Read full article →</a></div><div class="blog-card"><i class="fas fa-file-signature"></i><h3>Contract Traps Revealed</h3><p>Hidden language in senior living leases: level-of-care add-ons, aging-in-place clauses, and financial pitfalls.</p><a style="color:var(--antique-gold); cursor:pointer;" class="read-more">Read full article →</a></div><div class="blog-card"><i class="fas fa-brain"></i><h3>Memory Care vs. Assisted Living</h3><p>Clinical distinctions, staffing ratios, security protocols, and engagement approaches explained.</p><a style="color:var(--antique-gold); cursor:pointer;" class="read-more">Read full article →</a></div><div class="blog-card"><i class="fas fa-calendar-check"></i><h3>6 Signs It's Time for Assessment</h3><p>Early indicators that proactive planning should begin, before a crisis emerges.</p><a style="color:var(--antique-gold); cursor:pointer;" class="read-more">Read full article →</a></div><div class="blog-card"><i class="fas fa-chart-line"></i><h3>2025 Senior Living Cost Guide</h3><p>Comprehensive breakdown of costs, hidden fees, and negotiation strategies.</p><a style="color:var(--antique-gold); cursor:pointer;" class="read-more">Read full article →</a></div><div class="blog-card"><i class="fas fa-heart"></i><h3>Emotional Resilience for Caregivers</h3><p>Strategies to prevent burnout and maintain family relationships during transitions.</p><a style="color:var(--antique-gold); cursor:pointer;" class="read-more">Read full article →</a></div></div></div></section>
     `,
+    
+    testimonials: () => `
+      <section style="padding-top:160px;"><div class="container"><h2 data-aos="fade-up">Families We've Served</h2><p class="section-subhead">Real stories from families who found clarity, peace, and the perfect environment for their loved ones.</p><div class="testimonial-grid"><div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--antique-gold); font-size:2rem; margin-bottom:1rem; display:block;"></i><p>"Platinum Senior Services was our lifeline. When my mother needed immediate placement after a fall, they had options within hours and handled everything. We couldn't have done it without them."</p><p><strong>— The Williams Family</strong><br>Atlanta, GA</p></div><div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--antique-gold); font-size:2rem; margin-bottom:1rem; display:block;"></i><p>"We spent months overwhelmed by options. Michelle stepped in, listened to our father's needs, and found a memory care community that feels like home. Worth every penny."</p><p><strong>— The Chen Family</strong><br>Buckhead, GA</p></div><div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--antique-gold); font-size:2rem; margin-bottom:1rem; display:block;"></i><p>"The contract negotiation alone saved us over $15,000 annually. Platinum's advocacy is unmatched. They truly work for families, not facilities."</p><p><strong>— Robert Martinez</strong><br>Marietta, GA</p></div><div class="testimonial-card"><i class="fas fa-quote-left" style="color:var(--antique-gold); font-size:2rem; margin-bottom:1rem; display:block;"></i><p>"James and the team guided us through a difficult dementia diagnosis with compassion and expertise. They treated us like family."</p><p><strong>— The O'Malley Family</strong><br>Sandy Springs, GA</p></div></div></div></section>
+    `,
+    
     contact: () => `
-      <section style="padding-top:160px;"><div class="container"><div class="split-layout"><div class="split-left" data-aos="fade-right"><h2>Start the Conversation</h2><p>A member of our care team will respond within 2 hours during business days.</p><form id="contactForm"><div class="form-group" style="margin-bottom:1rem;"><input type="text" placeholder="Full Name" required id="name" style="width:100%; padding:14px; border:1px solid #ddd;"></div><div class="form-group" style="margin-bottom:1rem;"><input type="email" placeholder="Email Address" required id="email" style="width:100%; padding:14px;"></div><div class="form-group" style="margin-bottom:1rem;"><input type="tel" placeholder="Phone" id="phone" style="width:100%; padding:14px;"></div><div class="form-group"><select id="urgency" style="width:100%; padding:14px;"><option>Planning ahead</option><option>Urgent / Crisis within days</option></select></div><button type="submit" class="btn-primary" style="margin-top:1rem;">Request Consultation</button><p id="formMsg" style="margin-top:1rem; color:var(--antique-gold);"></p></form></div><div class="split-right" data-aos="fade-left"><h3>Direct Concierge</h3><p><i class="fas fa-phone"></i> (555) 123-4567 (24/7)</p><p><i class="fas fa-envelope"></i> concierge@platinumsenior.com</p><p><i class="fas fa-map-marker-alt"></i> 123 Peachtree Street, Atlanta</p><img class="img-fluid" style="margin-top:1.5rem; height:250px;" src="${getImage('living')}" alt="Map"></div></div></div></section>
+      <section style="padding-top:160px;"><div class="container"><div class="split-layout"><div class="split-left" data-aos="fade-right"><h2>Start the Conversation</h2><p>Fill out the form below. A member of our care team will respond within 2 hours during business days, or immediately for urgent situations.</p><form id="contactForm"><div class="form-group"><input type="text" id="fullName" placeholder="Full Name" required></div><div class="form-group"><input type="email" id="emailAddress" placeholder="Email Address" required></div><div class="form-group"><input type="tel" id="phoneNumber" placeholder="Phone Number" required></div><div class="form-group"><select id="urgencySelect"><option value="Planning ahead">Planning ahead (3+ months)</option><option value="Soon">Soon (1-3 months)</option><option value="Urgent">Urgent / Crisis within days</option></select></div><div class="form-group"><textarea id="messageText" rows="4" placeholder="Tell us about your situation..."></textarea></div><button type="submit" class="btn-primary" id="submitBtn">Request Confidential Consultation</button><div id="formFeedback"></div></form></div><div class="split-right" data-aos="fade-left"><h3>Direct Concierge Line</h3><p><i class="fas fa-phone" style="color:var(--antique-gold); margin-right:10px;"></i> <strong>(555) 123-4567</strong><br>Available 24/7 for crisis situations</p><p style="margin-top:1rem;"><i class="fas fa-envelope" style="color:var(--antique-gold); margin-right:10px;"></i> concierge@platinumsenior.com</p><p style="margin-top:1rem;"><i class="fas fa-map-marker-alt" style="color:var(--antique-gold); margin-right:10px;"></i> 123 Peachtree Street, Suite 450<br>Atlanta, GA 30303</p><div style="margin-top:2rem;"><h4>Office Hours</h4><p>Monday - Friday: 8:00 AM - 7:00 PM<br>Saturday: By appointment<br>Sunday: Emergency response only</p></div><img class="img-fluid" style="margin-top:1.5rem; height:200px; object-fit:cover;" src="${images.living}" alt="Elegant living space"></div></div></div></section>
     `
   };
 
@@ -563,45 +610,85 @@
     if(pages[pageId]) {
       document.getElementById("app").innerHTML = pages[pageId]();
       currentPage = pageId;
+      
+      // Re-attach all navigation links
+      attachNavigation();
+      
+      // Handle contact form if on contact page
       if(pageId === "contact") {
         const form = document.getElementById("contactForm");
-        if(form) form.onsubmit = (e) => { e.preventDefault(); document.getElementById("formMsg").innerHTML = "✓ Thank you. A Platinum advisor will reach out shortly."; form.reset(); };
+        if(form) {
+          form.onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById("fullName")?.value;
+            const email = document.getElementById("emailAddress")?.value;
+            const feedback = document.getElementById("formFeedback");
+            if(name && email) {
+              feedback.innerHTML = '<div class="success-message">✓ Thank you, ' + name + '. A Platinum advisor will reach out within 2 hours.</div>';
+              form.reset();
+            } else {
+              feedback.innerHTML = '<div class="error-message">Please fill in both name and email address.</div>';
+            }
+            setTimeout(() => { if(feedback) feedback.innerHTML = ''; }, 5000);
+          };
+        }
       }
-      attachNavEvents();
+      
+      // Handle read more links for resources
+      if(pageId === "resources") {
+        document.querySelectorAll('.read-more').forEach((link, index) => {
+          link.addEventListener('click', () => {
+            alert("Full article: This is a demo of Platinum Senior Services' premium content. In production, this would link to the complete article with expert insights and actionable guidance.");
+          });
+        });
+      }
+      
       AOS.refresh();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateActiveNav(pageId);
     }
   }
 
-  function attachNavEvents() {
+  function attachNavigation() {
     document.querySelectorAll("[data-page]").forEach(el => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
-        const page = el.getAttribute("data-page");
-        if(page && pages[page]) render(page);
-        updateActiveNav(page);
-        if(window.innerWidth <= 768) document.getElementById("navLinks")?.classList.remove("show");
-      });
+      el.removeEventListener('click', handleNavClick);
+      el.addEventListener('click', handleNavClick);
     });
-    const logo = document.getElementById("logo-home");
-    if(logo) logo.addEventListener("click", (e) => { e.preventDefault(); render("home"); updateActiveNav("home"); });
   }
-
+  
+  function handleNavClick(e) {
+    e.preventDefault();
+    const page = this.getAttribute("data-page");
+    if(page && pages[page]) {
+      render(page);
+      if(window.innerWidth <= 768) {
+        document.getElementById("navLinks")?.classList.remove("show");
+      }
+    }
+  }
+  
   function updateActiveNav(page) {
-    document.querySelectorAll(".nav-links a[data-page]").forEach(link => {
-      if(link.getAttribute("data-page") === page) link.classList.add("active");
-      else link.classList.remove("active");
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      const linkPage = link.getAttribute("data-page");
+      if(linkPage === page) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
     });
   }
 
+  // Mobile menu toggle
   document.getElementById("mobileMenuBtn")?.addEventListener("click", () => {
     document.getElementById("navLinks")?.classList.toggle("show");
   });
+  
+  // Logo click
+  document.getElementById("logo-home")?.addEventListener("click", () => render("home"));
 
+  // Initialize AOS and render home
   AOS.init({ duration: 800, once: true, offset: 100 });
   render("home");
-  attachNavEvents();
-  updateActiveNav("home");
 </script>
 </body>
 </html>
