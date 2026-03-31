@@ -391,6 +391,69 @@
       font-family: 'Playfair Display', serif;
     }
 
+    /* Process Timeline */
+    .timeline-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .timeline-step {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .timeline-number {
+      width: 70px;
+      height: 70px;
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+    }
+    .timeline-content {
+      background: var(--pure-white);
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: var(--soft-shadow);
+      border: 1px solid var(--medium-grey);
+      flex: 1;
+    }
+    .timeline-content h3 {
+      margin-bottom: 0.5rem;
+    }
+    .timeline-duration {
+      display: inline-block;
+      background: var(--light-grey);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--dark-grey);
+      margin-bottom: 1rem;
+    }
+    .checklist {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .checklist li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .checklist li:before {
+      content: "✓";
+      color: var(--accent-gold);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
     /* FAQ Section */
     .faq-item {
       background: var(--pure-white);
@@ -466,9 +529,14 @@
       .img-fluid {
         height: 300px;
       }
-      .testimonial {
-        padding: 1.8rem;
-        font-size: 1.1rem;
+      .timeline-step {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
       }
     }
 
@@ -582,7 +650,8 @@
     service: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     crisis: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     living: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    consultation: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    consultation: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    team2: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
   };
 
   const pages = {
@@ -649,8 +718,184 @@
     `,
     
     about: () => `
-      <section style="padding-top: 140px;"><div class="container split-layout"><div class="split-left" data-aos="fade-right"><div class="badge">Founder & CEO</div><h2>Michelle Sterling, LNHA, CMC</h2><p style="font-size:1.1rem; color: var(--accent-gold); margin-bottom:1rem;">Founder & Principal Advisor</p><p>With over 20 years in geriatric care management and licensed nursing home administration, Michelle brings unparalleled expertise to families navigating senior living decisions.</p><p style="margin-top:1rem;">Before founding Platinum Senior Services, Michelle served as Director of Operations for a portfolio of luxury senior communities. She saw firsthand how the system often fails families without advocates—and she made it her mission to change that.</p><p style="margin-top:1rem;"><strong>Credentials:</strong> Licensed Nursing Home Administrator, Certified Care Manager, MBA in Healthcare Administration</p></div><div class="split-right" data-aos="fade-left"><img class="img-fluid" src="${images.about}" alt="Michelle Sterling"></div></div></section>
-      <section><div class="container"><h2 style="text-align:center;">Meet Our Team</h2><div class="team-grid"><div class="team-card" data-aos="fade-up"><i class="fas fa-user-md" style="font-size:2rem;color:var(--accent-gold);"></i><h3>James O'Connor, RN</h3><p>Director of Care Navigation</p><p>Former hospital discharge planner, 15+ years experience</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-brain" style="font-size:2rem;color:var(--accent-gold);"></i><h3>Dr. Elena Vasquez, PhD</h3><p>Clinical Advisor</p><p>Geriatric Psychology, Dementia Specialist</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-hand-holding-heart" style="font-size:2rem;color:var(--accent-gold);"></i><h3>David Kim, LCSW</h3><p>Family Counselor & Advocate</p><p>Licensed Clinical Social Worker</p></div><div class="team-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-chart-line" style="font-size:2rem;color:var(--accent-gold);"></i><h3>Sarah Thompson</h3><p>Financial Coordinator</p><p>Medicaid & Elder Law Specialist</p></div></div></div></section>
+      <section style="padding-top: 140px;">
+        <div class="container">
+          <div class="badge">Our Story</div>
+          <h2 data-aos="fade-up">A Legacy of Compassionate Guidance</h2>
+          <p class="section-subhead" data-aos="fade-up">Platinum Senior Services was founded with a singular mission: to transform the way families navigate senior living decisions.</p>
+        </div>
+      </section>
+      
+      <section style="padding-top: 0;">
+        <div class="container split-layout">
+          <div class="split-left" data-aos="fade-right">
+            <h3>Our Founding Story</h3>
+            <p>Founded in 2012 by Michelle Sterling, Platinum Senior Services emerged from a deeply personal realization. After years working inside luxury senior communities, Michelle witnessed countless families making rushed, uninformed decisions during moments of crisis. She knew there had to be a better way.</p>
+            <p style="margin-top: 1rem;">What began as a solo practice has grown into a premier advisory firm serving hundreds of families across Metro Atlanta. Today, we remain committed to our founding principle: every family deserves an unbiased advocate who puts their loved one's well-being above all else.</p>
+            <p style="margin-top: 1rem;"><strong>Our Promise:</strong> We will never accept a commission from a senior living community. Your trust is our greatest asset.</p>
+          </div>
+          <div class="split-right" data-aos="fade-left">
+            <img class="img-fluid" src="${images.about}" alt="Platinum Senior Services Team">
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-grey);">
+        <div class="container">
+          <h2 style="text-align:center;" data-aos="fade-up">Meet Our Leadership Team</h2>
+          <div class="team-grid">
+            <div class="team-card" data-aos="fade-up"><i class="fas fa-user-circle" style="font-size:2.5rem;color:var(--accent-gold);"></i><h3>Michelle Sterling, LNHA, CMC</h3><p style="color:var(--accent-gold);">Founder & Principal Advisor</p><p>20+ years geriatric care management. Former Director of Operations for luxury senior communities. Licensed Nursing Home Administrator.</p><p><strong>Education:</strong> Emory University, Geriatric Fellowship | Georgia State, MBA</p></div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-user-md" style="font-size:2.5rem;color:var(--accent-gold);"></i><h3>James O'Connor, RN, BSN</h3><p style="color:var(--accent-gold);">Director of Care Navigation</p><p>15 years as hospital discharge planner. Certified Dementia Practitioner. Expertise in complex medical cases and transitional care.</p></div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-brain" style="font-size:2.5rem;color:var(--accent-gold);"></i><h3>Dr. Elena Vasquez, PhD</h3><p style="color:var(--accent-gold);">Clinical Advisor</p><p>Geriatric psychologist specializing in Alzheimer's and dementia care. 20+ years clinical research and patient care experience.</p></div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-hands-helping" style="font-size:2.5rem;color:var(--accent-gold);"></i><h3>David Kim, LCSW, MSW</h3><p style="color:var(--accent-gold);">Family Counselor & Advocate</p><p>Licensed Clinical Social Worker. Specializes in family dynamics, caregiver support, and trauma-informed care.</p></div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-chart-line" style="font-size:2.5rem;color:var(--accent-gold);"></i><h3>Sarah Thompson, CFP®</h3><p style="color:var(--accent-gold);">Financial Coordinator</p><p>Certified Financial Planner with expertise in elder law, Medicaid planning, and long-term care financing.</p></div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-hand-holding-heart" style="font-size:2.5rem;color:var(--accent-gold);"></i><h3>Patricia Williams, MSG</h3><p style="color:var(--accent-gold);">Geriatric Care Manager</p><p>Master's in Gerontology. 12 years experience coordinating care for aging adults and their families.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 style="text-align:center;" data-aos="fade-up">Our Core Values</h2>
+          <div class="grid-3">
+            <div class="pillar-card" data-aos="flip-left"><i class="fas fa-heart"></i><h3>Compassion First</h3><p>We understand the emotional weight of these decisions. Every interaction is grounded in empathy and respect.</p></div>
+            <div class="pillar-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-balance-scale"></i><h3>Unwavering Integrity</h3><p>We disclose our fee structure openly and refuse commissions. Our advice is always in your best interest.</p></div>
+            <div class="pillar-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-graduation-cap"></i><h3>Clinical Excellence</h3><p>Our team includes RNs, licensed social workers, and geriatric specialists. Medical expertise guides every recommendation.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-grey);">
+        <div class="container" style="text-align:center;">
+          <div class="badge">Our Commitment</div>
+          <h2 data-aos="fade-up">Serving Families Across Metro Atlanta</h2>
+          <p style="max-width: 800px; margin: 1rem auto;">We proudly serve families in Atlanta, Buckhead, Sandy Springs, Marietta, Decatur, Alpharetta, Roswell, and surrounding communities. Our deep relationships with local senior living communities ensure we find the perfect fit for your loved one.</p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Atlanta</span>
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Buckhead</span>
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Sandy Springs</span>
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Marietta</span>
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Decatur</span>
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Alpharetta</span>
+            <span style="background: var(--pure-white); padding: 8px 20px; border-radius: 30px;">🏠 Roswell</span>
+          </div>
+        </div>
+      </section>
+    `,
+    
+    process: () => `
+      <section style="padding-top: 140px;">
+        <div class="container">
+          <div class="badge">Our Methodology</div>
+          <h2 data-aos="fade-up">A Clear Path Forward</h2>
+          <p class="section-subhead" data-aos="fade-up">We've guided over 500 families through senior living decisions. Our proven process delivers clarity, confidence, and peace of mind.</p>
+        </div>
+      </section>
+
+      <section style="padding-top: 0;">
+        <div class="container">
+          <div class="timeline-container">
+            <div class="timeline-step" data-aos="fade-right">
+              <div class="timeline-number">01</div>
+              <div class="timeline-content">
+                <span class="timeline-duration">Step 1: 45-60 minutes</span>
+                <h3>Discovery & Listening Session</h3>
+                <p>We begin by truly understanding your situation. This isn't a sales call—it's a conversation about your loved one, their needs, your concerns, and your hopes for their future.</p>
+                <ul class="checklist">
+                  <li>Comprehensive overview of medical history and current condition</li>
+                  <li>Discussion of timeline: proactive planning or urgent need</li>
+                  <li>Financial considerations and budget parameters</li>
+                  <li>Location preferences and family involvement</li>
+                  <li>No pressure, no obligation—just listening</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>What you'll receive:</strong> A summary of next steps and a clear understanding of how we can help.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-step" data-aos="fade-left">
+              <div class="timeline-number">02</div>
+              <div class="timeline-content">
+                <span class="timeline-duration">Step 2: 1-2 weeks</span>
+                <h3>Comprehensive Assessment & Care Profile</h3>
+                <p>We conduct a deep dive into your loved one's specific needs, creating a detailed roadmap that guides every decision moving forward.</p>
+                <ul class="checklist">
+                  <li>Clinical review of medical records, medications, and diagnoses</li>
+                  <li>Cognitive assessment and memory care considerations</li>
+                  <li>Mobility, activities of daily living, and care level requirements</li>
+                  <li>Financial analysis: budget, assets, insurance, and potential benefits</li>
+                  <li>Personal preferences: lifestyle, activities, dining, and community culture</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>What you'll receive:</strong> A personalized Care Profile document—your roadmap for finding the perfect community.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-step" data-aos="fade-right">
+              <div class="timeline-number">03</div>
+              <div class="timeline-content">
+                <span class="timeline-duration">Step 3: 1-2 weeks</span>
+                <h3>Curated Community Selection & Guided Tours</h3>
+                <p>We research and vet communities based on your Care Profile, narrowing hundreds of options to a curated shortlist of 3-5 best-fit communities.</p>
+                <ul class="checklist">
+                  <li>Clinical vetting: staffing ratios, medication management, dementia programming</li>
+                  <li>Quality review: state survey results, inspection history, resident satisfaction</li>
+                  <li>Financial vetting: fee structures, contract terms, hidden costs</li>
+                  <li>Cultural fit: community atmosphere, resident engagement, family involvement</li>
+                  <li>Guided tours: we accompany you to ask the questions you might not know to ask</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>What you'll receive:</strong> A shortlist of communities with detailed comparison matrix and tour schedule.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-step" data-aos="fade-left">
+              <div class="timeline-number">04</div>
+              <div class="timeline-content">
+                <span class="timeline-duration">Step 4: 1-2 weeks</span>
+                <h3>Placement, Contract Negotiation & Move Coordination</h3>
+                <p>Once you've selected your preferred community, we handle the complex details so you can focus on your loved one.</p>
+                <ul class="checklist">
+                  <li>Contract review: we analyze 40+ page agreements, flag liability clauses and hidden fees</li>
+                  <li>Rate negotiation: we leverage our relationships to secure favorable terms</li>
+                  <li>Care level assessment: ensure appropriate care from day one</li>
+                  <li>Move coordination: connect you with trusted moving services and downsizing specialists</li>
+                  <li>Paperwork management: handle all forms, medical documentation, and administrative tasks</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>What you'll receive:</strong> Signed lease, settled loved one, and peace of mind.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-step" data-aos="fade-right">
+              <div class="timeline-number">05</div>
+              <div class="timeline-content">
+                <span class="timeline-duration">Ongoing Support</span>
+                <h3>30-Day Follow-Up & Ongoing Advocacy</h3>
+                <p>Our relationship doesn't end at move-in. We're here to ensure a smooth transition and continued quality of care.</p>
+                <ul class="checklist">
+                  <li>Week 1: Check-in call to ensure settling in smoothly</li>
+                  <li>Week 2: On-site visit to review care plan and address any concerns</li>
+                  <li>Month 1: Comprehensive follow-up with community staff and family</li>
+                  <li>Quarterly check-ins: Ongoing advocacy and care plan reviews (optional package)</li>
+                  <li>Annual contract review: Ensure continued value and appropriate care levels</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>What you'll receive:</strong> A trusted partner for the long journey ahead.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-grey);">
+        <div class="container">
+          <h2 style="text-align:center;" data-aos="fade-up">What Makes Our Process Different?</h2>
+          <div class="grid-3">
+            <div class="pillar-card" data-aos="zoom-in"><i class="fas fa-clock"></i><h3>No Rush, No Pressure</h3><p>We work at your family's pace. For urgent needs we move quickly; for proactive planning we take the time to get it right.</p></div>
+            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-search"></i><h3>Clinical-First Approach</h3><p>Medical expertise drives our recommendations. We don't just match amenities—we match clinical needs to capabilities.</p></div>
+            <div class="pillar-card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-hand-holding-usd"></i><h3>Transparent Pricing</h3><p>Flat-fee packages quoted upfront. No hourly billing surprises. No commissions. Just honest, transparent value.</p></div>
+          </div>
+          <div style="text-align: center; margin-top: 3rem;">
+            <a class="btn-primary" data-page="contact">Start Your Journey Today</a>
+          </div>
+        </div>
+      </section>
     `,
     
     services: () => `
@@ -658,10 +903,6 @@
       <section><div class="container"><div class="split-layout"><div class="split-right"><img class="img-fluid" src="${images.crisis}" alt="Crisis Management"></div><div class="split-left"><h3>Urgent Transition & Crisis Management</h3><p>When a fall or hospital discharge leaves you with 24-48 hours, we respond immediately. We coordinate with hospital case managers, screen communities, and manage the move.</p><ul style="list-style:none;"><li>✓ 24/7 crisis response team</li><li>✓ Hospital discharge coordination</li><li>✓ Same-day placement available</li><li>✓ Moving coordination services</li></ul></div></div></div></section>
       <section><div class="container"><div class="split-layout"><div class="split-left"><h3>Ongoing Advocacy & Family Support</h3><p>Continued support after placement. Quarterly check-ins, care plan reviews, and advocacy to ensure your loved one receives exceptional care long-term.</p></div><div class="split-right"><img class="img-fluid" src="${images.consultation}" alt="Family Support"></div></div></div></section>
       <section><div class="container" style="background: var(--light-grey); padding: 3rem; text-align:center; border-radius: 16px;"><h2>Transparent Fee Structure</h2><p style="font-size:1.1rem;">Private pay, fee-for-service. No commissions. 100% unbiased recommendations.</p><p style="margin-top:1rem;"><strong>Initial consultation:</strong> Complimentary (45 minutes)</p><a class="btn-primary" data-page="contact" style="margin-top:1rem;">Request Fee Schedule</a></div></section>
-    `,
-    
-    process: () => `
-      <section style="padding-top: 140px;"><div class="container"><div class="badge">Our Methodology</div><h2 data-aos="fade-up" style="text-align:center;">A Clear Path Forward</h2><p style="text-align:center; margin-bottom:3rem;">Our proven 4-step process delivers clarity and peace of mind.</p><div class="services-grid"><div class="service-card" data-aos="fade-right"><h3><span style="color:var(--accent-gold);">01</span><br>Discovery Call</h3><p>45-minute consultation to understand your situation, timeline, and needs. No pressure, just listening.</p></div><div class="service-card" data-aos="fade-up"><h3><span style="color:var(--accent-gold);">02</span><br>Family Assessment</h3><p>Deep-dive into medical records, financial considerations, and personal preferences.</p></div><div class="service-card" data-aos="fade-left"><h3><span style="color:var(--accent-gold);">03</span><br>Curated Tours</h3><p>We narrow options to 3-4 best matches and accompany you on tours to ask the critical questions.</p></div><div class="service-card" data-aos="fade-up"><h3><span style="color:var(--accent-gold);">04</span><br>Placement & Advocacy</h3><p>Contract review, negotiation, move coordination, and 30-day post-placement follow-up.</p></div></div><div style="text-align:center; margin-top:3rem;"><a class="btn-primary" data-page="contact">Begin Your Journey</a></div></div></section>
     `,
     
     resources: () => `
